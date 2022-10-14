@@ -2978,6 +2978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectSound: {fileID: 8300000, guid: 9b88240f08c7a68448632e4e0fa7458b, type: 3}
+  deadSound: {fileID: 8300000, guid: db451e36e2f89414d93beac5ab273361, type: 3}
 --- !u!1001 &3579574012084582067
 PrefabInstance:
   m_ObjectHideFlags: 0
