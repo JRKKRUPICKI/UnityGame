@@ -10,7 +10,7 @@ public class LevelDisplay : MonoBehaviour{
     public TextMeshProUGUI pointsText;
 
     void Update(){
-        levelText.text = "Poziom: " + GameController.level;
-        pointsText.text = "Punkty: " + GameController.points + "/3";
+        levelText.text = "Poziom: " + GameManager.currentLevel;
+        pointsText.text = "Punkty: " + GameManager.points + "/" + GameManager.pointsForLevel["Level " + GameManager.currentLevel];
     }
 }

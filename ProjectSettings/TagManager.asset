@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ENEMY
   - POINT
+  - DOOR
   layers:
   - Default
   - TransparentFX
