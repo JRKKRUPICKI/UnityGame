@@ -11,7 +11,11 @@ public class PlayerMovement : MonoBehaviour{
     public AudioClip collectSound;
     public AudioClip deadSound;
 
-    void Start(){}
+    private SoundManager soundManager;
+
+    void Start(){
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+    }
 
     void FixedUpdate(){
         if (GameManager.showCompleteLevelWindow) return;
@@ -23,16 +27,14 @@ public class PlayerMovement : MonoBehaviour{
 
     void OnTriggerEnter(Collider other){
         if(other.transform.tag == "ENEMY"){
-            GetComponent<AudioSource>().clip = deadSound;
-            GetComponent<AudioSource>().Play();
-            GameManager.RestartLevel();
+            soundManager.PlaySound(SoundManager.Sound.death, transform.position);
+            GameManager.showLoseLevelWindow = true;
         }
         if(other.transform.tag == "POINT"){
             Destroy(other);
             other.GetComponent<MeshRenderer>().enabled = false;
             GameManager.AddPoint();
-            GetComponent<AudioSource>().clip = collectSound;
-            GetComponent<AudioSource>().Play();
+            soundManager.PlaySound(SoundManager.Sound.point, other.transform.position);
         }
         if (other.transform.tag == "DOOR"){
             if (GameManager.IsNextLevelUnlocked()){
