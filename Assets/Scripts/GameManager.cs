@@ -21,9 +21,12 @@ public class GameManager : MonoBehaviour{
         pointsForLevel["Level 3"] = 2;
         pointsForLevel["Level 4"] = 2;
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        points = 0;
     }
 
-    void Update() { }
+    void Update() {
+        if (GameManager.showCompleteLevelWindow || GameManager.showLoseLevelWindow) GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+    }
 
     public static void AddPoint(){
         points++;
@@ -38,45 +41,27 @@ public class GameManager : MonoBehaviour{
         return pointsForLevel["Level " + currentLevel] == points;
     }
 
-    void OnGUI(){
-        if (showCompleteLevelWindow){
-            Rect windowRect = new Rect((Screen.width - Screen.width / 2) / 2, (Screen.height - Screen.height / 2) / 2, Screen.width / 2, Screen.height / 2);
-            GUI.Box(windowRect, "Poziom " + currentLevel + " ukoñczony");
-            if(GUI.Button(new Rect(windowRect.x + windowRect.width / 2 - windowRect.width / 4, windowRect.y + windowRect.height / 2 - 70, windowRect.width / 2, 50), "Nastêpny poziom")){
-                SetNextLevel();
-                showCompleteLevelWindow = false;
-                SceneManager.LoadScene("Level " + currentLevel);
-            }
-            if(GUI.Button(new Rect(windowRect.x + windowRect.width / 2 - windowRect.width / 4, windowRect.y + windowRect.height / 2, windowRect.width / 2, 50), "Menu")){
-                SetNextLevel();
-                showCompleteLevelWindow = false;
-                SceneManager.LoadScene("Menu");
-            }
-        }
-        if (showLoseLevelWindow)
-        {
-            Rect windowRect = new Rect((Screen.width - Screen.width / 2) / 2, (Screen.height - Screen.height / 2) / 2, Screen.width / 2, Screen.height / 2);
-            GUI.Box(windowRect, "Poziom " + currentLevel + " nieukoñczony");
-            if (GUI.Button(new Rect(windowRect.x + windowRect.width / 2 - windowRect.width / 4, windowRect.y + windowRect.height / 2 - 70, windowRect.width / 2, 50), "Restartuj poziom")){
-                RestartLevel();
-                showLoseLevelWindow = false;
-            }
-            if (GUI.Button(new Rect(windowRect.x + windowRect.width / 2 - windowRect.width / 4, windowRect.y + windowRect.height / 2, windowRect.width / 2, 50), "Menu")){
-                points = 0;
-                showLoseLevelWindow = false;
-                SceneManager.LoadScene("Menu");
-            }
-        }
-    }
-
     public static void RestartLevel(){
         points = 0;
+        showLoseLevelWindow = false;
         SceneManager.LoadScene("Level " + currentLevel);
     }
 
-    void SetNextLevel(){
+    public static void SetNextLevel(){
         currentLevel++;
         points = 0;
         PlayerPrefs.SetInt("Current Level", currentLevel);
+    }
+
+    public static void LoadNextLevel(){
+        showCompleteLevelWindow = false;
+        SceneManager.LoadScene("Level " + currentLevel);
+    }
+
+    public static void LoadMenu(){
+        points = 0;
+        showCompleteLevelWindow = false;
+        showLoseLevelWindow = false;
+        SceneManager.LoadScene("Menu");
     }
 }

@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void FixedUpdate(){
-        if (GameManager.showCompleteLevelWindow) return;
+        if (GameManager.showCompleteLevelWindow || GameManager.showLoseLevelWindow) return;
         input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         if(GetComponent<Rigidbody>().velocity.magnitude < maxSpeed){
             GetComponent<Rigidbody>().AddForce(input * moveSpeed);
@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour{
         if (other.transform.tag == "DOOR"){
             if (GameManager.IsNextLevelUnlocked()){
                 GameManager.showCompleteLevelWindow = true;
+                GameManager.SetNextLevel();
             }
         }
     }
