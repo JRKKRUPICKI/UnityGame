@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour{
         pointsForLevel["Level 3"] = 2;
         pointsForLevel["Level 4"] = 2;
         pointsForLevel["Level 5"] = 3;
+        pointsForLevel["Level 6"] = 9;
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         points = 0;
     }

@@ -601,7 +601,7 @@ Transform:
   - {fileID: 191270361}
   - {fileID: 720777527}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &425916338
 GameObject:
@@ -698,7 +698,7 @@ RectTransform:
   - {fileID: 1824892654}
   - {fileID: 907234761}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1063,7 +1063,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907234760
 GameObject:
@@ -1380,7 +1380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1617941591
 PrefabInstance:
@@ -1674,6 +1674,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4346277907879320820, guid: 63cbe71f2aab4694781b9c466445416b, type: 3}
   m_PrefabInstance: {fileID: 1817386182}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1819220118
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.50017
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516807, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715139904350516827, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9328ecb9c86bf6e46a5cfaa44e7ce36f, type: 3}
 --- !u!1 &1824892653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1947,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2127019573
 GameObject:
@@ -1991,7 +2048,7 @@ Transform:
   m_Children:
   - {fileID: 963194228}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2127019578
 Rigidbody:
