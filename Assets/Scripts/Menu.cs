@@ -39,6 +39,10 @@ public class Menu : MonoBehaviour{
         SceneManager.LoadScene("Select Level");
     }
 
+    public void Controls(){
+        SceneManager.LoadScene("Controls");
+    }
+
     public void LoadLevel1(){
         SceneManager.LoadScene("Level 1");
         GameManager.currentLevel = 1;

@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour{
         if (Input.GetKeyDown(KeyCode.RightBracket)){
             if (++moveDirection > 3) moveDirection = 0;
         }
-        print(moveDirection);
     }
 
     void FixedUpdate(){
