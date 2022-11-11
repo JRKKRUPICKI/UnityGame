@@ -9,9 +9,8 @@ public class Laser : MonoBehaviour{
     public float hideTime;
     float changeTime;
 
-    void Start(){}
-
     void Update(){
+        if (GameManager.showPauseGameWindow) return;
         changeTime += Time.deltaTime;
         if (laser.activeSelf && changeTime > showTime || !laser.activeSelf && changeTime > hideTime){
             laser.SetActive(!laser.activeSelf);

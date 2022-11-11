@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour{
 
-    public Canvas poziomUkonczony;
-    public Canvas poziomNieukonczony;
+    public Canvas levelCompletedWindow;
+    public Canvas levelUncompletedWindow;
+    public Canvas pauseGameWindow;
 
     void Awake(){
         if (GameObject.FindGameObjectsWithTag("UIManager").Length > 1) Destroy(this.gameObject);
@@ -14,24 +15,34 @@ public class UIManager : MonoBehaviour{
 
     void Start(){
         DontDestroyOnLoad(this.gameObject);
-        GameObject.Find("NextLevelButton").GetComponent<Button>().onClick.AddListener(GameManager.LoadNextLevel);
-        GameObject.Find("MenuButtonNext").GetComponent<Button>().onClick.AddListener(GameManager.LoadMenu);
-        GameObject.Find("RestartLevelButton").GetComponent<Button>().onClick.AddListener(GameManager.RestartLevel);
-        GameObject.Find("MenuButtonRestart").GetComponent<Button>().onClick.AddListener(GameManager.LoadMenu);
+        GameObject.Find("Next Level Button").GetComponent<Button>().onClick.AddListener(GameManager.LoadNextLevel);
+        GameObject.Find("Menu Button 1").GetComponent<Button>().onClick.AddListener(GameManager.LoadMenu);
+        GameObject.Find("Restart Level Button 1").GetComponent<Button>().onClick.AddListener(GameManager.RestartLevel);
+        GameObject.Find("Menu Button 2").GetComponent<Button>().onClick.AddListener(GameManager.LoadMenu);
+        GameObject.Find("Restart Level Button 2").GetComponent<Button>().onClick.AddListener(GameManager.RestartLevel);
+        GameObject.Find("Menu Button 3").GetComponent<Button>().onClick.AddListener(GameManager.LoadMenu);
     }
 
     void Update(){
-        if (GameManager.showCompleteLevelWindow){
-            poziomUkonczony.enabled = true;
-            poziomNieukonczony.enabled = false;
+        if (GameManager.showLevelCompletedWindow){
+            levelCompletedWindow.enabled = true;
+            levelUncompletedWindow.enabled = false;
+            pauseGameWindow.enabled = false;
         }
-        else if (GameManager.showLoseLevelWindow){
-            poziomUkonczony.enabled = false;
-            poziomNieukonczony.enabled = true;
+        else if (GameManager.showLevelUncompletedWindow){
+            levelCompletedWindow.enabled = false;
+            levelUncompletedWindow.enabled = true;
+            pauseGameWindow.enabled = false;
+        }
+        else if (GameManager.showPauseGameWindow){
+            levelCompletedWindow.enabled = false;
+            levelUncompletedWindow.enabled = false;
+            pauseGameWindow.enabled = true;
         }
         else{
-            poziomNieukonczony.enabled = false;
-            poziomUkonczony.enabled = false;
+            levelCompletedWindow.enabled = false;
+            levelUncompletedWindow.enabled = false;
+            pauseGameWindow.enabled = false;
         }
     }
 }

@@ -9,10 +9,20 @@ public class GameManager : MonoBehaviour{
 
     public static Dictionary<string, int> pointsForLevel = new Dictionary<string, int>();
 
-    public static bool showCompleteLevelWindow;
-    public static bool showLoseLevelWindow;
+    public static bool showLevelCompletedWindow;
+    public static bool showLevelUncompletedWindow;
+    public static bool showPauseGameWindow;
 
     private static SoundManager soundManager;
+
+    void Awake(){
+        pointsForLevel["Level 1"] = 3;
+        pointsForLevel["Level 2"] = 3;
+        pointsForLevel["Level 3"] = 2;
+        pointsForLevel["Level 4"] = 2;
+        pointsForLevel["Level 5"] = 3;
+        pointsForLevel["Level 6"] = 9;
+    }
 
     void Start() {
         currentLevel = PlayerPrefs.GetInt("Current Level");
@@ -27,7 +37,8 @@ public class GameManager : MonoBehaviour{
     }
 
     void Update() {
-        if (GameManager.showCompleteLevelWindow || GameManager.showLoseLevelWindow) GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        if (GameManager.showLevelCompletedWindow || GameManager.showLevelUncompletedWindow) GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        if (Input.GetKeyDown(KeyCode.Escape)) showPauseGameWindow = !showPauseGameWindow;
     }
 
     public static void AddPoint(){
@@ -45,7 +56,8 @@ public class GameManager : MonoBehaviour{
 
     public static void RestartLevel(){
         points = 0;
-        showLoseLevelWindow = false;
+        showLevelUncompletedWindow = false;
+        showPauseGameWindow = false;
         SceneManager.LoadScene("Level " + currentLevel);
     }
 
@@ -56,14 +68,15 @@ public class GameManager : MonoBehaviour{
     }
 
     public static void LoadNextLevel(){
-        showCompleteLevelWindow = false;
+        showLevelCompletedWindow = false;
         SceneManager.LoadScene("Level " + currentLevel);
     }
 
     public static void LoadMenu(){
         points = 0;
-        showCompleteLevelWindow = false;
-        showLoseLevelWindow = false;
+        showLevelCompletedWindow = false;
+        showLevelUncompletedWindow = false;
+        showPauseGameWindow = false;
         SceneManager.LoadScene("Menu");
     }
 }

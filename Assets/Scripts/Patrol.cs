@@ -16,7 +16,8 @@ public class Patrol : MonoBehaviour{
     }
 
     void Update(){
-        if(patrolPoints.Length == 0) return;
+        if (GameManager.showPauseGameWindow) return;
+        if (patrolPoints.Length == 0) return;
         if(GetComponent<Transform>().position == patrolPoints[currentPoint].position){
             if(patrolLoop){
                 if(currentPoint == patrolPoints.Length - 1){

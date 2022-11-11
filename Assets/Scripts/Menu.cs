@@ -6,13 +6,11 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour{
 
-    public Button continueButton;
-
-    void Start(){}
+    public GameObject continueButton;
 
     void Update(){
         if (PlayerPrefs.GetInt("Current Level") <= 1){
-            continueButton.transform.localScale = new Vector3(0, 0, 0);
+            if(continueButton != null) continueButton.SetActive(false);
         }
     }
 

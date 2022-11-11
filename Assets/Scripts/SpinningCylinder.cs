@@ -6,9 +6,8 @@ public class SpinningCylinder : MonoBehaviour{
 
     public int spinningSpeed;
 
-    void Start(){}
-
     void Update(){
+        if (GameManager.showPauseGameWindow) return;
         transform.Rotate(new Vector3(0, 10, 0) * Time.deltaTime * spinningSpeed);
     }
 }

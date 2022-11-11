@@ -22,8 +22,6 @@ public class SoundManager : MonoBehaviour{
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Update(){}
-
     public void PlaySound(Sound sound, Vector3 position){
         switch (sound){
             case Sound.point:
