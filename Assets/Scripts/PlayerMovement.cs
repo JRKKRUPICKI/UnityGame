@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.transform.tag == "ENEMY"){
+        if(other.transform.tag == "ENEMY" && !GameManager.showLevelCompletedWindow){
             soundManager.PlaySound(SoundManager.Sound.death, transform.position);
             GameManager.showLevelUncompletedWindow = true;
         }
